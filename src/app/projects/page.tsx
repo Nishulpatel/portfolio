@@ -16,3 +16,11 @@
 //     </Container>
 //   );
 // }
+
+export default function ProjectsPage() {
+  return(
+    <div>
+      i will add tomorrow
+    </div>
+  )
+}
