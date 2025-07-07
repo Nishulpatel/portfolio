@@ -7,8 +7,7 @@ export const navbarConfig = {
   },
   navItems: [
     { href: "/", label: "Home" },
-    { href: "/projects", label: "Projects" },
-    { href: "/about", label: "About" },
-    { href: "/blog", label: "Blog" },
+    // { href: "/projects", label: "Projects" },
+    // { href: "/blog", label: "Blog" },
   ],
 };
