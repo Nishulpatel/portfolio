@@ -35,7 +35,7 @@ export default function TechSkills() {
   return (
     <section className="max-w-4xl mx-auto px-6 lg:px-12 py-12">
       <div className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-        Tech Skills
+        Tech <span className=" text-blue-500">Skills</span> 
       </div>
 
       <div className="space-y-8">

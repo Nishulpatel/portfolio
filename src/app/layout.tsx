@@ -1,6 +1,5 @@
 import "./globals.css";
-import Footer from "@/components/common/Footer";
-import StackingNavbar from "@/components/common/Navbar";
+import Navbar from "@/components/common/Navbar";
 import { ViewTransitions } from "next-view-transitions";
 
 export const metadata = {
@@ -15,12 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      
     <html lang="en" suppressHydrationWarning>
       <body className={`flex flex-col h-screen font-hanken-grotesk antialiased`}>
-        <StackingNavbar />
+        <Navbar />
         {children}
-        <Footer />
       </body>
     </html>
     </ViewTransitions>

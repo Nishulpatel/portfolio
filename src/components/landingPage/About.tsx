@@ -7,7 +7,7 @@ import Name from "./Name";
 export default function About() {
 
   return (
-    <section className="bg-white dark:bg-gray-950 transition-colors duration-300 flex items-center">
+    <section className="bg-white mt-24 dark:bg-gray-950 transition-colors duration-300 flex items-center">
       <div className="w-full max-w-4xl mx-auto px-6 lg:px-12">
         <Name />
         <div className="grid gap-10 lg:grid-cols-3">

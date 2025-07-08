@@ -7,7 +7,7 @@ import ThemeSwitch from './ThemeSwitch';
 
 export default function Navbar() {
   return (
-    <Container className="sticky top-0 z-50 rounded-md py-8 backdrop-blur-sm">
+    <Container className="fixed  top-0 z-50 rounded-md py-8 ml-120 backdrop-blur-sm">
       <div className="flex items-center justify-between px-6">
         <div className="flex items-baseline gap-4">
           <div className="flex items-center justify-center gap-4">
@@ -15,8 +15,7 @@ export default function Navbar() {
               <Link
                 className="transition-all duration-300 ease-in-out hover:underline hover:decoration-2 hover:underline-offset-4"
                 key={item.label}
-                href={item.href}
-              >
+                href={item.href}>
                 {item.label}
               </Link>
             ))}

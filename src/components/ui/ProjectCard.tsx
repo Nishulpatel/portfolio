@@ -1,106 +1,163 @@
-// import { Badge } from "@/components/ui/badge";
-// import {
-//   Card,
-//   CardContent,
-//   CardFooter,
-//   CardHeader,
-//   CardTitle,
-// } from "@/components/ui/card";
-// import { cn } from "@/lib/utils";
-// import Link from "next/link";
-// import Markdown from "react-markdown";
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+import Markdown from "react-markdown";
+import { Button } from "./button";
 
-// interface ProjectProps {
-//   title: string;
-//   href?: string;
-//   description: string;
-//   dates: string;
-//   technologies?: readonly string[];
-//   link?: string;
-//   image?: string;
-//   video?: string;
-//   links?: readonly {
-//     icon: React.ReactNode;
-//     type: string;
-//     href: string;
-//   }[];
-//   className?: string;
-// }
+interface ProjectProps {
+  title: string;
+  href?: string;
+  description: string;
+  progress?: string;
+  technologies?: readonly string[];
+  link?: string;
+  image?: string;
+  links?: readonly {
+    icon: React.ReactNode;
+    type: string;
+    href: string;
+  }[];
+  viewDetails?: {
+    icon: React.ReactNode;
+    type: string;
+    href: string;
+  };
+  className?: string;
+}
 
-// export default function ProjectCard({
-//   title,
-//   href,
-//   description,
-//   dates,
-//   technologies,
-//   link,
-//   video,
-//   links,
-//   className,
-// }: ProjectProps) {
-//   return (
-//     <Card className={cn("flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full relative group", className)}>
-//       <Link
-//         href={href || "#"}
-//         className="block cursor-pointer"
-//       >
-//         {video && (
-//           <video
-//             src={video}
-//             autoPlay
-//             loop
-//             muted
-//             playsInline
-//             className="pointer-events-none mx-auto h-40 w-full object-cover object-top"
-//           />
-//         )}
-//       </Link>
+export default function ProjectCard({
+  title,
+  href,
+  description,
+  image,
+  progress,
+  viewDetails,
+  technologies,
+  link,
+  links,
+  className,
+}: ProjectProps) {
+  return (
+    <Card
+      className={cn(
+        "flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full relative group",
+        className
+      )}
+    >
+      <Link target="_blank" href={href || "#"} className="block cursor-pointer">
+        {image && (
+          <div className="relative w-full h-48 overflow-hidden">
+            <Image
+              src={image}
+              alt={title}
+              fill
+              className="object-cover object-center transition-transform duration-300 ease-in-out group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
+            />
+          </div>
+        )}
+      </Link>
 
-//       <CardHeader className="px-2">
-//         <div className="space-y-1">
-//           <CardTitle className="mt-1 text-base">{title}</CardTitle>
-//           <time className="font-sans text-xs text-muted-foreground">{dates}</time>
-//           {link && (
-//             <div className="hidden font-sans text-xs underline print:visible">
-//               {link.replace("https://", "").replace("www.", "").replace("/", "")}
-//             </div>
-//           )}
-//            <Markdown>
-//             {description}
-//           </Markdown>
-//         </div>
-//       </CardHeader>
+      <CardHeader className="px-2">
+        <div className="space-y-1">
+          <div className="flex justify-between items-center">
+            <Link
+              target="_blank"
+              href={href || "#"}
+              className="group relative block w-fit cursor-pointer"
+            >
+              <CardTitle className="mt-1 text-base relative">
+                {title}
+                <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-current transition-all duration-500 group-hover:w-full"></span>
+              </CardTitle>
+            </Link>
 
-//       <CardContent className="mt-auto flex flex-col px-2">
-//         {technologies && technologies.length > 0 && (
-//           <div className="mt-2 flex flex-wrap gap-1 max-w-full overflow-hidden">
-//             {technologies.map((tech) => (
-//               <Badge
-//                 className="px-1 py-0 text-[10px] whitespace-nowrap"
-//                 variant="secondary"
-//                 key={tech}
-//               >
-//                 {tech}
-//               </Badge>
-//             ))}
-//           </div>
-//         )}
-//       </CardContent>
+            <div className="flex items-center gap-2">
+              {progress === "Completed" ? (
+                <span className="w-2 h-2 bg-green-500 rounded-full" />
+              ) : progress === "Abandon" ? (
+                <span className="w-2 h-2 bg-red-500 rounded-full" />
+              ) : (
+                <span className="w-2 h-2 bg-blue-500 rounded-full" />
+              )}
 
-//       <CardFooter className="px-2 pb-2">
-//         {links && links.length > 0 && (
-//           <div className="flex flex-row flex-wrap items-start gap-1">
-//             {links.map((link, idx) => (
-//               <Link href={link.href} key={idx} target="_blank">
-//                 <Badge className="flex gap-2 px-2 py-1 text-[10px]">
-//                   {link.icon}
-//                   {link.type}
-//                 </Badge>
-//               </Link>
-//             ))}
-//           </div>
-//         )}
-//       </CardFooter>
-//     </Card>
-//   );
-// }
+              <div className="font-sans mr-2 text-xs text-muted-foreground">
+                {progress}
+              </div>
+            </div>
+          </div>
+          {link && (
+            <div className="hidden font-sans text-xs underline print:visible">
+              {link
+                .replace("https://", "")
+                .replace("www.", "")
+                .replace("/", "")}
+            </div>
+          )}
+          <Markdown>{description}</Markdown>
+        </div>
+      </CardHeader>
+      <CardContent className="mt-auto flex flex-col px-2">
+        {technologies && technologies.length > 0 && (
+          <div className="flex flex-wrap gap-1 max-w-full overflow-hidden">
+            {technologies.map((tech) => (
+              <Badge
+                className="px-1 py-0 text-[10px] whitespace-nowrap"
+                variant="secondary"
+                key={tech}
+              >
+                {tech}
+              </Badge>
+            ))}
+          </div>
+        )}
+      </CardContent>
+
+      <CardFooter className="px-2 pb-3 flex justify-between items-center">
+        {links && links.length > 0 && (
+          <div className="flex flex-row flex-wrap items-start gap-1">
+            {links.map((link, idx) => (
+              <Link
+                href={link.href}
+                key={idx}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Badge className="flex px-3 gap-2 py-1 text-[10px]">
+                  {link.icon}
+                  {link.type}
+                </Badge>
+              </Link>
+            ))}
+          </div>
+        )}
+
+        {viewDetails && (
+          <Link
+            href={viewDetails.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              variant="link"
+              size={"sm"}
+              className="flex mr-2 items-center gap-2"
+            >
+              {viewDetails.type}
+              {viewDetails.icon}
+            </Button>
+          </Link>
+        )}
+      </CardFooter>
+    </Card>
+  );
+}
