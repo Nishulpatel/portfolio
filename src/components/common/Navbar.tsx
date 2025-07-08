@@ -7,7 +7,7 @@ import ThemeSwitch from './ThemeSwitch';
 
 export default function Navbar() {
   return (
-    <Container className="fixed  top-0 z-50 rounded-md py-8 ml-120 backdrop-blur-sm">
+    <Container className="fixed  top-0 z-50 rounded-md py-8  md:ml-120  backdrop-blur-sm">
       <div className="flex items-center justify-between px-6">
         <div className="flex items-baseline gap-4">
           <div className="flex items-center justify-center gap-4">
