@@ -145,13 +145,11 @@ export default function ProjectCard({
           <Link
             href={viewDetails.href}
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             <Button
               variant="link"
               size={"sm"}
-              className="flex mr-2 items-center gap-2"
-            >
+              className="flex mr-2 items-center gap-2">
               {viewDetails.type}
               {viewDetails.icon}
             </Button>
