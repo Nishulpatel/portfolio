@@ -5,6 +5,7 @@ import Github from "@/components/landingPage/Github";
 import Footer from "@/components/common/Footer";
 import ProjectsPage from "./projects/page";
 import ViewMore from "@/components/ui/ViewMoreButton";
+import ContactForm from "@/components/landingPage/Contact";
 
 export default function HomePage() {
   return (
@@ -17,6 +18,7 @@ export default function HomePage() {
         gridClassName="grid gap-6 sm:grid-cols-2 lg:grid-cols-2"
         titleClassName="text-2xl font-semibold text-gray-900 dark:text-white mb-10"/>
         <ViewMore />
+        <ContactForm />
       <Footer />
     </Container>
   );
