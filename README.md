@@ -1,86 +1,109 @@
-# ⚡ Nishul.dev — Developer Portfolio
+# Nishul.dev — Developer Portfolio
 
 > A clean, fast, and modern developer portfolio built with **Next.js**, **Tailwind CSS**, and **TypeScript**.  
 > Designed to showcase your projects, skills, and contact information — mobile-friendly and deployable in seconds.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-### 🎨 Frontend
+### Frontend
 - **Next.js** — React framework with App Router
 - **Tailwind CSS** — Utility-first styling
 - **TypeScript** — Type-safe development
 - **Lucide Icons** — Clean iconography
 
-### ✉️ Integrations
+### Integrations
 - **Resend API** — Contact form email delivery
 - **React Hook Form + Zod** — Form handling and validation
 
-### 🚀 Deployment
+### Deployment
 - **Vercel** — Instant deployment and CI/CD
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
-### 1️⃣ Clone the repo
-
+### 1. Clone the repository
 ```bash
 git clone https://github.com/NishulDhakar/Portfolio.git
 cd Portfolio
-2️⃣ Install dependencies
-bash
-Copy
-Edit
+```
+
+### 2. Install dependencies
+```bash
 npm install
 # or
 yarn install
-3️⃣ Configure environment variables
-Create a .env.local file in the root directory:
+```
 
-env
-Copy
-Edit
+### 3. Configure environment variables
+Create a `.env.local` file in the root directory:
+```env
 RESEND_API_KEY=your_resend_api_key
 RESEND_DOMAIN=your_verified_resend_domain
-🔐 These are required for the contact form.
+```
+These are required for the contact form.
 
-4️⃣ Run the app locally
-bash
-Copy
-Edit
+### 4. Run the development server
+```bash
 npm run dev
 # or
 yarn dev
-Then open http://localhost:3000 in your browser.
+```
+Then open `http://localhost:3000` in your browser.
 
-📁 Features
-📱 Responsive layout
+---
 
-🌓 Dark mode support
+## Features
 
-🧑‍💻 Featured & full project list pages
+- **Responsive Design** — Works beautifully on all devices
+- **Dark Mode Support** — Toggle between light and dark themes
+- **Project Showcase** — Featured projects with detailed pages
+- **GitHub Integration** — Live contribution chart
+- **Contact Form** — Functional email form with validation
+- **Modern UI** — Clean animations and professional design
+- **Fast Performance** — Optimized with Next.js App Router
+- **SEO Friendly** — Built-in meta tags and optimization
 
-📊 GitHub contribution chart
+---
 
-📬 Working contact form
+## Screenshots
 
-✨ Animations, custom UI, and clean code
+*Coming soon — Add your portfolio screenshots to `/public/screenshots`*
 
-🖼️ Screenshots
+---
 
+## Contributing
 
-You can update these images in /public/screenshots.
-
-🤝 Contributing
 Contributions, issues, and feature ideas are welcome!
-Feel free to fork this repo, raise an issue, or submit a PR.
 
-📬 Contact
-🌐 Website: https://nishul.dev
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-📧 Email: nishuldhakar0@gmail.com
+---
+
+## Contact
+
+- **Website**: [nishul.dev](https://nishul.dev)
+- **Email**: nishuldhakar0@gmail.com
+- **GitHub**: [@NishulDhakar](https://github.com/NishulDhakar)
+- **Twitter**: [@NishulDhakar](https://twitter.com/NishulDhakar)
+
+---
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+<div align="center">
+  <strong>Made with ❤️ by Nishul Dhakar</strong>
+</div>
 
 🐙 GitHub: @NishulDhakar
 
