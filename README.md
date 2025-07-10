@@ -4,10 +4,10 @@
 
 ## Tech Stack
 
-- **Next.js** - React framework with App Router
-- **Tailwind CSS** - Utility-first styling
-- **TypeScript** - Type-safe development
-- **Resend API** - Contact form email delivery
+- **Next.js** 
+- **Tailwind CSS** 
+- **TypeScript** 
+- **Resend API** 
 
 ## Getting Started
 
