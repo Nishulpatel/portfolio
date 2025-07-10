@@ -1,6 +1,6 @@
 # Nishul.dev
 
-> developer portfolio built with Next.js 15, Tailwind CSS, and TypeScript.
+> Developer portfolio built with Next.js 15, Tailwind CSS, and TypeScript.
 
 ## Tech Stack
 
