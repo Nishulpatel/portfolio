@@ -1,4 +1,4 @@
-# Nishul.dev
+# [Nishul.dev](https://nishul.dev)
 
 > Developer portfolio built with Next.js 15, Tailwind CSS, and TypeScript.
 
