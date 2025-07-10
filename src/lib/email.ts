@@ -27,6 +27,7 @@ export const send = async (emailFormData: z.infer<typeof formSchema>) => {
     }
     return { success: true, data }
   } catch (err) {
+    console.error("Email send failed:", err);
     return { success: false, error: "Unexpected server error" }
   }
 }
