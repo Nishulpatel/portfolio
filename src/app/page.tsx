@@ -14,11 +14,13 @@ export default function HomePage() {
       <TechSkills />
       <Github />
       <ProjectsPage
+        limit={2} 
         containerClassName="mx-auto px-6 lg:px-12 max-w-4xl mt-8 py-4"
         gridClassName="grid gap-6 sm:grid-cols-2 lg:grid-cols-2"
-        titleClassName="text-2xl font-semibold text-gray-900 dark:text-white mb-10"/>
-        <ViewMore />
-        <ContactForm />
+        titleClassName="text-2xl font-semibold text-gray-900 dark:text-white mb-10"
+      />
+      <ViewMore />
+      <ContactForm />
       <Footer />
     </Container>
   );

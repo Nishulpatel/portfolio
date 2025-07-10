@@ -15,7 +15,7 @@ export default function About() {
             <div className="text-2xl font-semibold ">
               About
             </div>
-            <div className="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+            <div className="space-y-4 text-secondary dark:text-gray-300 leading-relaxed">
               <p>{about.description}</p>
             </div>
           </div>

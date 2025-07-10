@@ -3,130 +3,98 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import {
-  Form,
-  FormControl,
-
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
-
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { formSchema } from "@/lib/Schema"
 import z from "zod"
 import { send } from "@/lib/email"
 
-export default function ContactForm() {
+const ContactForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      fullName: "",
-      phoneNo: "",
-      email: "",
-      message: "",
-    },
+    defaultValues: { fullName: "", phoneNo: "", email: "", message: "" },
   })
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-
-    send(values);
-
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    send(values)
+    await new Promise(res => setTimeout(res, 2000))
     form.reset()
   }
 
+  const fields = [
+    { name: "fullName", label: "Full Name", placeholder: "Nishul dhakar" },
+    { name: "phoneNo", label: "Phone Number", placeholder: "+91 1234567890" },
+    { name: "email", label: "Email", placeholder: "example@email.com" },
+    { name: "message", label: "Message", placeholder: "Type your message here...", isTextarea: true },
+  ]
+
   return (
     <section className="mt-12 mx-auto px-6 lg:px-12 py-4">
+  <div className="mb-12">
+  <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+    Get in <span className="text-blue-500">Touch</span>
+  </h2>
+  <p className="text-secondary mt-4">Have an idea, collaboration, or just want to say hi?</p>
+  <p className="text-secondary">Drop me a message.</p>
+</div>
 
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-
-              {/* Name and Phone */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <FormField
-                  control={form.control}
-                  name="fullName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Full Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Nishul dhakar" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="phoneNo"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Phone Number</FormLabel>
-                      <FormControl>
-                        <Input placeholder="+91 1234567890" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              {/* Email */}
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {fields.slice(0, 2).map(({ name, label, placeholder }) => (
               <FormField
+                key={name}
                 control={form.control}
-                name="email"
+                name={name as keyof z.infer<typeof formSchema>}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>{label}</FormLabel>
                     <FormControl>
-                      <Input placeholder="example@email.com" {...field} />
+                      <Input placeholder={placeholder} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
+            ))}
+          </div>
 
-              {/* Message */}
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Message</FormLabel>
-                    <FormControl className="">
-                      <Textarea
-                        placeholder="Type your message here..."
-                        rows={6}
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+          {fields.slice(2).map(({ name, label, placeholder, isTextarea }) => (
+            <FormField
+              key={name}
+              control={form.control}
+              name={name as keyof z.infer<typeof formSchema>}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{label}</FormLabel>
+                  <FormControl>
+                    {isTextarea ? (
+                      <Textarea placeholder={placeholder} rows={6} {...field} />
+                    ) : (
+                      <Input placeholder={placeholder} {...field} />
+                    )}
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          ))}
 
-              {/* Submit Button */}
-              <Button
-                type="submit"
-                
-                disabled={form.formState.isSubmitting}
-              >
-                {form.formState.isSubmitting ? (
-                  <div className="flex items-center justify-center gap-3">
-                    <div className="w-5 h-5 border-2 border-gray-400 border-t-black rounded-full animate-spin"></div>
-                    Sending Message...
-                  </div>
-                ) : (
-                  "Send Message"
-                )}
-              </Button>
-            </form>
-          </Form>
+          <Button type="submit" disabled={form.formState.isSubmitting}>
+            {form.formState.isSubmitting ? (
+              <div className="flex items-center justify-center gap-3">
+                <div className="w-5 h-5 border-2 border-gray-400 border-t-black rounded-full animate-spin" />
+                Sending Message...
+              </div>
+            ) : (
+              "Send Message"
+            )}
+          </Button>
+        </form>
+      </Form>
     </section>
   )
 }
+
+export default ContactForm
