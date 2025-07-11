@@ -14,6 +14,7 @@ import { Button } from "./button";
 
 interface ProjectProps {
   title: string;
+  icon : React.ReactNode;
   href?: string;
   description: string;
   progress?: string;
@@ -37,12 +38,13 @@ export default function ProjectCard({
   title,
   href,
   description,
-  image,
+  // image,
   progress,
   viewDetails,
   technologies,
   link,
   links,
+  icon,
   className,
 }: ProjectProps) {
   return (
@@ -50,9 +52,8 @@ export default function ProjectCard({
       className={cn(
         "flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full relative group",
         className
-      )}
-    >
-      <Link target="_blank" href={href || "#"} className="block cursor-pointer">
+      )}>
+      {/* <Link target="_blank" href={href || "#"} className="block cursor-pointer">
         {image && (
           <div className="relative w-full h-48 overflow-hidden">
             <Image
@@ -65,18 +66,19 @@ export default function ProjectCard({
             />
           </div>
         )}
-      </Link>
+      </Link> */}
 
-      <CardHeader className="px-2">
+      <CardHeader className="px-4 mt-6">
         <div className="space-y-1">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center mb-4">
             <Link
               target="_blank"
               href={href || "#"}
-              className="group relative block w-fit cursor-pointer"
-            >
-              <CardTitle className="mt-1 text-base relative">
-                {title}
+              className="group relative block w-fit cursor-pointer text-bold">
+              <CardTitle className="mt-1 text-base relative flex justfy-between gap-2">
+                {title} <div className="mt-1">
+                  {icon}
+                  </div>
                 <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-current transition-all duration-500 group-hover:w-full"></span>
               </CardTitle>
             </Link>
@@ -106,15 +108,14 @@ export default function ProjectCard({
           <Markdown>{description}</Markdown>
         </div>
       </CardHeader>
-      <CardContent className="mt-auto flex flex-col px-2">
+      <CardContent className="mt-auto flex flex-col px-4">
         {technologies && technologies.length > 0 && (
           <div className="flex flex-wrap gap-1 max-w-full overflow-hidden">
             {technologies.map((tech) => (
               <Badge
-                className="px-1 py-0 text-[10px] whitespace-nowrap"
-                variant="secondary"
-                key={tech}
-              >
+                className="px-2 py-1 text-[10px] whitespace-nowrap"
+                variant="outline"
+                key={tech}>
                 {tech}
               </Badge>
             ))}
@@ -122,16 +123,15 @@ export default function ProjectCard({
         )}
       </CardContent>
 
-      <CardFooter className="px-2 pb-3 flex justify-between items-center">
+      <CardFooter className="px-4 pb-3 flex justify-between">
         {links && links.length > 0 && (
-          <div className="flex flex-row flex-wrap items-start gap-1">
+          <div className="flex  gap-30">
             {links.map((link, idx) => (
               <Link
                 href={link.href}
                 key={idx}
                 target="_blank"
-                rel="noopener noreferrer"
-              >
+                rel="noopener noreferrer">
                 <Badge className="flex px-3 gap-2 py-1 text-[10px]">
                   {link.icon}
                   {link.type}
@@ -141,7 +141,7 @@ export default function ProjectCard({
           </div>
         )}
 
-        {viewDetails && (
+        {/* {viewDetails && (
           <Link
             href={viewDetails.href}
             target="_blank"
@@ -154,7 +154,7 @@ export default function ProjectCard({
               {viewDetails.icon}
             </Button>
           </Link>
-        )}
+        )} */}
       </CardFooter>
     </Card>
   );

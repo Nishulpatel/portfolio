@@ -46,9 +46,10 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/debug": "^4.1.12",
     "@types/estree": "^1.0.8",
     "@types/json5": "^0.0.30",
-    "@types/node": "^20",
+    "@types/node": "20.19.7",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19",
     "eslint": "^9",

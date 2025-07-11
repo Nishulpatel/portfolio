@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning={true}>
       <body className={`flex flex-col h-screen font-hanken-grotesk antialiased`}>
         <GitHubStars />
         <Navbar />

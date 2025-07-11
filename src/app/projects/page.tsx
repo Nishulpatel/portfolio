@@ -1,4 +1,5 @@
 import Container from "@/components/common/Container";
+import Footer from "@/components/common/Footer";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { projectsData } from "@/data/Projects/Projects";
 
