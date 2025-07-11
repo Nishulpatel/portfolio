@@ -1,12 +1,12 @@
 import { navbarConfig } from '@/config/Navbar';
 import { Link } from 'next-view-transitions';
 import React from 'react';
-
 import Container from './Container';
 import ThemeSwitch from './ThemeSwitch';
 
 export default function Navbar() {
   return (
+    <div>
     <Container className="fixed  top-0 z-50 rounded-md py-8  md:ml-120  backdrop-blur-sm">
       <div className="flex items-center justify-between px-6">
         <div className="flex items-baseline gap-4">
@@ -26,5 +26,6 @@ export default function Navbar() {
         </div>
       </div>
     </Container>
+    </div>
   );
 }

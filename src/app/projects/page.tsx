@@ -1,4 +1,3 @@
-// components/ProjectsPage.tsx
 import Container from "@/components/common/Container";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { projectsData } from "@/data/Projects/Projects";
@@ -7,7 +6,7 @@ interface ProjectsPageProps {
   containerClassName?: string;
   gridClassName?: string;
   titleClassName?: string;
-  limit?: number; // 👈 Add this
+  limit?: number; 
 }
 
 export default function ProjectsPage({
