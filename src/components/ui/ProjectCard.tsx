@@ -7,10 +7,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
-import { Button } from "./button";
+// import { Button } from "./button";
 
 interface ProjectProps {
   title: string;
@@ -40,7 +40,7 @@ export default function ProjectCard({
   description,
   // image,
   progress,
-  viewDetails,
+  // viewDetails,
   technologies,
   link,
   links,
