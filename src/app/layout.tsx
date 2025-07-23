@@ -1,12 +1,12 @@
-import "./globals.css";
+import "./save.css";
 import Navbar from "@/components/common/Navbar";
 import { ViewTransitions } from "next-view-transitions";
 import { Analytics } from "@vercel/analytics/next"
 import GitHubStars from "@/components/landingPage/GithubStar";
 
 export const metadata = {
-  title: "My Portfolio",
-  description: "A modern portfolio built with Next.js",
+  title: "Nishul's Portfolio",
+  description: "A perfect portfolio website that showcase your skills and projects. minimal and smooth microinteractions. perfect for developers and designers.",
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <ViewTransitions>
     <html lang="en" suppressHydrationWarning={true}>
-      <body className={`flex flex-col h-screen font-hanken-grotesk antialiased`}>
+      <body className={`flex flex-col h-screen font-hanken-grotesk antialiased bg-neutral-100 dark:bg-black`}>
         <GitHubStars />
         <Navbar />
         {children}

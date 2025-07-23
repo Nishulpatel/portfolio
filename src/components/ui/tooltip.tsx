@@ -1,3 +1,5 @@
+//This file creates a customizable, reusable tooltip component using Radix UI and Tailwind CSS for showing helpful text when users hover or focus on an element.
+
 "use client"
 
 import * as React from "react"

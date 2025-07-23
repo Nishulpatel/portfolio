@@ -3,7 +3,7 @@ import { Icons } from "@/components/ui/icons";
 export const projectsData = [
   {
     title: "SmartEssay",
-    icon: <Icons.squareArrowOutUpRight className="size-4 gap-2" />,
+
     href: "https://smartessay.nishul.dev/",
     progress: "Ongoing",
     description:
@@ -16,7 +16,7 @@ export const projectsData = [
         icon: <Icons.github className="size-3" />,
       },
     ],
-    image: "/smartessayImg.png",
+    image: "/anime.jpeg",
     viewDetails: {
       type: "Details",
       href: "/smartessay",
@@ -25,7 +25,7 @@ export const projectsData = [
   },
   {
     title: "DropitHere",
-    icon: <Icons.squareArrowOutUpRight className="size-4 gap-2" />,
+
     href: "https://dropithere.nishul.dev/",
     progress: "Completed",
     description:
@@ -69,28 +69,28 @@ export const projectsData = [
   //   },
   // },
 
-  {
-    title: "Course selling",
-    icon: <Icons.squareArrowOutUpRight className="size-4 gap-2" />,
-    href: "https://github.com/NishulDhakar/Course-selling-backend",
-    progress: "Completed",
-    description:
-      "Backend for a course selling platform with admin and user roles.",
-    technologies: ["React", "TailwindCSS", "TypeScript"],
-    links: [
-      {
-        type: "Source",
-        href: "https://github.com/NishulDhakar/Course-selling-backend",
-        icon: <Icons.github className="size-3" />,
-      },
-    ],
-    image: "/typingImg.png",
-    viewDetails: {
-      type: "Details",
-      href: "/typing",
-      icon: <Icons.squareArrowOutUpRight className="size-3" />,
-    },
-  },
+  // {
+  //   title: "Course selling",
+
+  //   href: "https://github.com/NishulDhakar/Course-selling-backend",
+  //   progress: "Completed",
+  //   description:
+  //     "Backend for a course selling platform with admin and user roles.",
+  //   technologies: ["React", "TailwindCSS", "TypeScript"],
+  //   links: [
+  //     {
+  //       type: "Source",
+  //       href: "https://github.com/NishulDhakar/Course-selling-backend",
+  //       icon: <Icons.github className="size-3" />,
+  //     },
+  //   ],
+  //   image: "/typingImg.png",
+  //   viewDetails: {
+  //     type: "Details",
+  //     href: "/typing",
+  //     icon: <Icons.squareArrowOutUpRight className="size-3" />,
+  //   },
+  // },
 
 
   // {

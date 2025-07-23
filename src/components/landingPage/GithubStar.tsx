@@ -23,13 +23,12 @@ export default function GitHubStars() {
   }, []);
 
   return (
-    <div className="fixed top-4 right-4 z-50">
+    <div className="fixed top-4 right-4 z-50 hidden md:block">
       <Link
         href="https://github.com/NishulDhakar/Portfolio"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Star NishulDhakar/Portfolio on GitHub"
-      >
+        aria-label="Star NishulDhakar/Portfolio on GitHub">
         <Button
           variant="outline"
           className="gap-2 px-4 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 transition text-sm font-medium text-black dark:text-white">

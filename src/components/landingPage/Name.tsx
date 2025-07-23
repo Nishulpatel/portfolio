@@ -14,17 +14,17 @@ export default function Name() {
               height={160}
               className="rounded-2xl shadow-sm ring-1 ring-gray-100 dark:ring-gray-800 "
             />
-            <span className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white dark:border-gray-950" />
+            <span className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-primary" />
           </div>
           <div className="flex-1">
-            <div className="text-5xl font-bold lg:text-6xl text-gray-900 dark:text-white mb-2 tracking-tight">
+            <div className="text-5xl font-bold lg:text-6xl text-primary mb-2 tracking-tight">
               Nishul
               <span className="block text-blue-500 ">Dhakar</span>
             </div>
-            <p className="text-xl text-gray-600 dark:text-gray-300 font-light">
+            <p className="text-xl text-secondary font-light">
               Full-Stack Developer
             </p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+            <p className="text-sm text-secondary mt-1">
              Bhopal, India
             </p>
           </div>

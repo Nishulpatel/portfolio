@@ -62,7 +62,7 @@ export default function QuickInfo() {
 
       <div className="mt-8 flex gap-4">
         {Object.entries(socialLinks).map(([name, { href, icon: Icon }]) => (
-          <Tooltip key={name} delayDuration={0}>
+          <Tooltip key={name} delayDuration={6} >
             <TooltipTrigger asChild>
               <Link
                 href={href}
@@ -72,7 +72,7 @@ export default function QuickInfo() {
                 <Icon className="w-[20px] h-[20px] " />
               </Link>
             </TooltipTrigger>
-            <TooltipContent>
+            <TooltipContent >
               <p>{name}</p>
             </TooltipContent>
           </Tooltip>
