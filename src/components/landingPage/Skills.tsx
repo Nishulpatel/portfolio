@@ -5,6 +5,7 @@ import { TbBrandFramerMotion } from "react-icons/tb";
 import { SiExpress, SiMongodb } from "react-icons/si";
 import { BiLogoTypescript } from "react-icons/bi";
 import { Button } from "../ui/button";
+import { AuroraText } from "../magicui/aurora-text";
 
 export default function TechSkills() {
   const techCategories = [
@@ -35,7 +36,7 @@ export default function TechSkills() {
   return (
     <section className="max-w-4xl mx-auto px-6 lg:px-12 py-12">
       <div className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-        Tech <span className=" text-blue-500">Skills</span> 
+        Tech <AuroraText> Skills</AuroraText> 
       </div>
 
       <div className="space-y-8">

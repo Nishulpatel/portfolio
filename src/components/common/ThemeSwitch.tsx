@@ -1,70 +1,55 @@
 // 'use client';
 
 // import React, { useCallback, useEffect, useState } from 'react';
-// import { Moon, Sun } from "lucide-react";
+// import { useTheme } from 'next-themes';
+// import { Moon, Sun } from 'lucide-react';
 
-// interface ThemeSwitchProps {
-//   className?: string;
-// }
-
-// export default function ThemeSwitch({ className }: ThemeSwitchProps) {
-//   const [theme, setTheme] = useState<'light' | 'dark'>('light');
+// export default function ThemeSwitch({ className }: { className?: string }) {
+//   const { resolvedTheme, setTheme } = useTheme();
 //   const [mounted, setMounted] = useState(false);
 //   const [isAnimating, setIsAnimating] = useState(false);
 
-//   useEffect(() => {
-//     const savedTheme =
-//       localStorage.getItem('theme') ||
-//       (window.matchMedia('(prefers-color-scheme: dark)').matches
-//         ? 'dark'
-//         : 'light');
-
-//     setTheme(savedTheme as 'light' | 'dark');
-//     document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-//     setMounted(true);
-//   }, []);
+//   useEffect(() => setMounted(true), []);
 
 //   const toggleTheme = useCallback(
-//     async () => {
+//     async (event: React.MouseEvent<HTMLButtonElement>) => {
 //       if (isAnimating) return;
 //       setIsAnimating(true);
 
+//       const rect = event.currentTarget.getBoundingClientRect();
+//       const x = rect.left + rect.width / 2;
+//       const y = rect.top + rect.height / 2;
+//       const backgroundColor = resolvedTheme === 'light' ? 'oklch(0.145 0 0)' : 'oklch(1 0 0)';
+
 //       const transition = document.createElement('div');
-//       transition.style.position = 'fixed';
-//       transition.style.top = '0';
-//       transition.style.left = '0';
-//       transition.style.width = '100%';
-//       transition.style.height = '100%';
-//       transition.style.zIndex = '9999';
-//       transition.style.pointerEvents = 'none';
-//       transition.style.backgroundColor =
-//         theme === 'light' ? 'oklch(0.15 0 0)' : 'oklch(0.98 0 0)';
-//       transition.style.opacity = '0';
-//       transition.style.transform = 'scaleY(0)';
-//       transition.style.transformOrigin = 'top';
-//       transition.style.transition = 'transform 600ms ease, opacity 1000ms ease';
+//       transition.setAttribute('data-theme-transition', 'true');
+//       transition.style.cssText = `
+//         position: fixed;
+//         inset: 0;
+//         z-index: 9999;
+//         pointer-events: none;
+//         background: ${backgroundColor};
+//         clip-path: circle(0px at ${x}px ${y}px);
+//         transition: clip-path 500ms ease;
+//       `;
 
 //       document.body.appendChild(transition);
 
 //       requestAnimationFrame(() => {
-//         transition.style.transform = 'scaleY(1)';
-//         transition.style.opacity = '1';
+//         const maxRadius = Math.max(window.innerWidth, window.innerHeight) * 1.2;
+//         transition.style.clipPath = `circle(${maxRadius}px at ${x}px ${y}px)`;
 //       });
 
-//       await new Promise((resolve) => setTimeout(resolve, 600));
+//       setTimeout(() => {
+//         setTheme(resolvedTheme === 'light' ? 'dark' : 'light');
+//       }, 250);
 
-//       const newTheme = theme === 'light' ? 'dark' : 'light';
-//       setTheme(newTheme);
-//       localStorage.setItem('theme', newTheme);
-//       document.documentElement.classList.toggle('dark');
-
-//       transition.style.opacity = '0';
-//       await new Promise((resolve) => setTimeout(resolve, 400));
-
-//       transition.remove();
-//       setIsAnimating(false);
+//       setTimeout(() => {
+//         transition.remove();
+//         setIsAnimating(false);
+//       }, 500);
 //     },
-//     [theme, isAnimating],
+//     [resolvedTheme, isAnimating, setTheme],
 //   );
 
 //   if (!mounted) return null;
@@ -73,20 +58,23 @@
 //     <button
 //       onClick={toggleTheme}
 //       disabled={isAnimating}
-//       className={`relative flex h-8 w-8 items-center justify-center overflow-hidden transition-opacity hover:opacity-80 ${className} hover:cursor-pointer`}
-//       aria-label="Toggle theme">
+//       className={`relative flex h-8 w-8 items-center justify-center overflow-hidden transition-opacity hover:opacity-80 ${className}`}
+//       aria-label="Toggle theme"
+//     >
 //       <Sun
-//         className={`absolute h-5 w-5 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
-//           theme === 'dark'
+//         className={`absolute h-5 w-5 transition-all duration-300 ease-in-out ${
+//           resolvedTheme === 'dark'
 //             ? 'translate-y-0 scale-100 opacity-100'
 //             : 'translate-y-5 scale-50 opacity-0'
-//         }`}/>
+//         }`}
+//       />
 //       <Moon
-//         className={`absolute h-5 w-5 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
-//           theme === 'light'
+//         className={`absolute h-5 w-5 transition-all duration-300 ease-in-out ${
+//           resolvedTheme === 'light'
 //             ? 'translate-y-0 scale-100 opacity-100'
 //             : 'translate-y-5 scale-50 opacity-0'
-//         }`}/>
+//         }`}
+//       />
 //     </button>
 //   );
 // }
@@ -95,6 +83,7 @@
 'use client';
 
 import React, { useCallback, useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
 import { Moon, Sun } from 'lucide-react';
 
 interface ThemeSwitchProps {
@@ -102,55 +91,56 @@ interface ThemeSwitchProps {
 }
 
 export default function ThemeSwitch({ className }: ThemeSwitchProps) {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
-    const savedTheme =
-      localStorage.getItem('theme') ||
-      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-
-    setTheme(savedTheme as 'light' | 'dark');
-    document.documentElement.classList.toggle('dark', savedTheme === 'dark');
     setMounted(true);
+    return () => {
+      const existingTransition = document.querySelector('[data-theme-transition]');
+      if (existingTransition) {
+        existingTransition.remove();
+      }
+    };
   }, []);
 
-  const toggleTheme = useCallback(async () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
+  const toggleTheme = useCallback(
+    async (event: React.MouseEvent<HTMLButtonElement>) => {
+      if (isAnimating) return;
+      setIsAnimating(true);
+      const rect = event.currentTarget.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+      const backgroundColor = resolvedTheme === 'light' ? 'oklch(0.145 0 0)' : 'oklch(1 0 0)';
 
-    // Create fade overlay
-    const fade = document.createElement('div');
-    fade.style.position = 'fixed';
-    fade.style.top = '0';
-    fade.style.left = '0';
-    fade.style.width = '100%';
-    fade.style.height = '100%';
-    fade.style.zIndex = '9999';
-    fade.style.pointerEvents = 'none';
-    fade.style.backgroundColor = theme === 'light' ? '#000' : '#fff';
-    fade.style.opacity = '0';
-    fade.style.transition = 'opacity 700ms ease';
+      const transition = document.createElement('div');
+      transition.setAttribute('data-theme-transition', 'true');
+      transition.style.cssText = `
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        pointer-events: none;
+        background: ${backgroundColor};
+        clip-path: circle(0px at ${x}px ${y}px);
+        transition: clip-path 500ms cubic-bezier(0.4, 0, 0.2, 1);
+      `;
+      document.body.appendChild(transition);
+      requestAnimationFrame(() => {
+        const maxRadius = Math.max(window.innerWidth, window.innerHeight) * 1.2;
+        transition.style.clipPath = `circle(${maxRadius}px at ${x}px ${y}px)`;
+      });
 
-    document.body.appendChild(fade);
+      const newTheme = resolvedTheme === 'light' ? 'dark' : 'light';
+      setTimeout(() => setTheme(newTheme), 250);
 
-    requestAnimationFrame(() => {
-      fade.style.opacity = '1';
-    });
-
-    await new Promise((resolve) => setTimeout(resolve, 500));
-
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.classList.toggle('dark');
-
-    fade.style.opacity = '0';
-    await new Promise((resolve) => setTimeout(resolve, 400));
-    fade.remove();
-    setIsAnimating(false);
-  }, [theme, isAnimating]);
+      setTimeout(() => {
+        transition.remove();
+        setIsAnimating(false);
+      }, 500);
+    },
+    [resolvedTheme, isAnimating, setTheme],
+  );
 
   if (!mounted) return null;
 
@@ -158,21 +148,21 @@ export default function ThemeSwitch({ className }: ThemeSwitchProps) {
     <button
       onClick={toggleTheme}
       disabled={isAnimating}
+      className={`relative flex h-8 w-8 items-center justify-center overflow-hidden transition-opacity hover:opacity-80 ${className} hover:cursor-pointer z-50`}
       aria-label="Toggle theme"
-      className={`relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-md transition-opacity hover:opacity-80 ${className}`}
     >
       <Sun
-        className={`absolute h-5 w-5 text-yellow-400 transition-all duration-500 ease-in-out ${
-          theme === 'dark'
-            ? 'opacity-100 scale-100 rotate-0'
-            : 'opacity-0 scale-75 rotate-90'
+        className={`absolute h-5 w-5 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+          resolvedTheme === 'dark'
+            ? 'translate-y-0 scale-100 opacity-100'
+            : 'translate-y-5 scale-50 opacity-0'
         }`}
       />
       <Moon
-        className={`absolute h-5 w-5 text-indigo-500 transition-all duration-500 ease-in-out ${
-          theme === 'light'
-            ? 'opacity-100 scale-100 rotate-0'
-            : 'opacity-0 scale-75 rotate-90'
+        className={`absolute h-5 w-5 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+          resolvedTheme === 'light'
+            ? 'translate-y-0 scale-100 opacity-100'
+            : 'translate-y-5 scale-50 opacity-0'
         }`}
       />
     </button>

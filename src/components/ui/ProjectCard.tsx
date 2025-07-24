@@ -12,9 +12,6 @@
 // import Markdown from "react-markdown";
 // // import { Button } from "./button";
 
-import { projectsData } from "@/data/Projects/Projects";
-import { BentoCard, BentoGrid } from "../magicui/bento-grid";
-
 // interface ProjectProps {
 //   title: string;
 //   icon : React.ReactNode;
@@ -164,29 +161,54 @@ import { BentoCard, BentoGrid } from "../magicui/bento-grid";
 // }
 
 
+"use client";
 
+import { cn } from "@/lib/utils";
+import { Card } from "@/components/ui/crazxy-ui/card";
+import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
+import { SparklesText } from "@/components/magicui/sparkles-text";
 
-export default function ProjectGrid() {
+export interface ProjectCardProps {
+    title?: React.ReactNode; 
+  description: string;
+  href: string;
+  className?: string;
+}
+
+export default function ProjectCard({
+  title ,
+  description,
+  href,
+  className,
+}: ProjectCardProps) {
   return (
-    <BentoGrid>
-      {projectsData.map((project, index) => (
-        <BentoCard
-          key={index}
-          name={project.title}
-          className="col-span-1" 
-          background={
-            <img
-              src={project.image}
-              alt={project.title}
-              className="absolute inset-0 h-full w-full object-cover opacity-10"
-            />
-          }
-          // Icon={() => project.icon}
-          description={project.description}
-          href={project.viewDetails.href}
-          cta="View Project"
-        />
-      ))}
-    </BentoGrid>
+<Card
+  variant="corners"
+  className={cn(
+    "w-full flex flex-col p-2 rounded-xl shadow-sm hover:shadow-md transition-all border border-muted bg-background",
+    className
+  )}
+>
+  {/* Custom title */}
+  <div className="flex items-center justify-between">
+    <SparklesText className="text-lg font-semibold">{title}</SparklesText>
+  </div>
+
+  {/* Custom description */}
+  <p className="text-sm text-muted-foreground mt-1">{description}</p>
+
+  {/* CTA */}
+  <div className="pt-8">
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-sm text-blue-500 hover:underline"
+    >
+      <InteractiveHoverButton>Check Out</InteractiveHoverButton>
+    </a>
+  </div>
+</Card>
+
   );
 }

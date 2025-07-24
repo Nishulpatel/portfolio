@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { formSchema } from "@/lib/Schema"
 import z from "zod"
 import { send } from "@/lib/email"
+import { AuroraText } from "../magicui/aurora-text"
 
 const ContactForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -33,7 +34,7 @@ const ContactForm = () => {
     <section className="mt-12 mx-auto px-6 lg:px-12 py-4">
   <div className="mb-12">
   <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
-    Get in <span className="text-blue-500">Touch</span>
+    Get in <AuroraText> Touch </AuroraText> 
   </h2>
   <p className="text-secondary mt-4">Have an idea, collaboration, or just want to say hi?</p>
   <p className="text-secondary">Drop me a message.</p>

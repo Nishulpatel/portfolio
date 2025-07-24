@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { AuroraText } from "@/components/magicui/aurora-text";
 
 export default function Name() {
   return (
@@ -10,18 +11,17 @@ export default function Name() {
             <Image
               src="/anime.jpeg"
               alt="Nishul Dhakar"
-              width={160}
-              height={160}
+              width={100}
+              height={100}
               className="rounded-2xl shadow-sm ring-1 ring-gray-100 dark:ring-gray-800 "
             />
-            <span className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-primary" />
+            <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-primary" />
           </div>
           <div className="flex-1">
-            <div className="text-5xl font-bold lg:text-6xl text-primary mb-2 tracking-tight">
-              Nishul
-              <span className="block text-blue-500 ">Dhakar</span>
-            </div>
-            <p className="text-xl text-secondary font-light">
+            <h1 className="text-4xl font-bold tracking-tighter md:text-5xl lg:text-5xl">
+      Nishul <AuroraText> Dhakar </AuroraText>
+    </h1>
+            <p className="text-xl mt-1 text-secondary font-light">
               Full-Stack Developer
             </p>
             <p className="text-sm text-secondary mt-1">

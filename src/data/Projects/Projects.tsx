@@ -1,50 +1,86 @@
 import { Icons } from "@/components/ui/icons";
+import { ProjectCardProps } from "@/components/ui/ProjectCard";
 
-export const projectsData = [
+
+export const projectsData: ProjectCardProps[] = [
   {
     title: "SmartEssay",
-
+    // icon: <Icons.squareArrowOutUpRight className="size-4" />,
     href: "https://smartessay.nishul.dev/",
-    progress: "Ongoing",
     description:
       "A minimalist Essay Practice App built for placement initiative. Real-time tracking, smart feedback, and gamified challenges to enhance logic, structure, and vocabulary while tracking progress.",
-    technologies: ["Next.js", "TypeScript", "TailwindCSS", "OpenAI API"],
-    links: [
-      {
-        type: "Source",
-        href: "https://github.com/NishulDhakar/smartessay",
-        icon: <Icons.github className="size-3" />,
-      },
-    ],
-    image: "/anime.jpeg",
-    viewDetails: {
-      type: "Details",
-      href: "/smartessay",
-      icon: <Icons.squareArrowOutUpRight className="size-3" />,
-    },
   },
-  {
-    title: "DropitHere",
-
-    href: "https://dropithere.nishul.dev/",
-    progress: "Completed",
+    {
+    title: "SmartEssay",
+    // icon: <Icons.squareArrowOutUpRight className="size-4" />,
+    href: "https://smartessay.nishul.dev/",
     description:
-      "Created a platform to organize content like Twitter threads and YouTube videos into custom playlists, with shareable links for easy and structured dashboard sharing.",
-    technologies: ["React", "Express.js", "MongoDB", "TailwindCSS", "REST API"],
-    links: [
-      {
-        type: "Source",
-        href: "https://github.com/NishulDhakar/DropitHere",
-        icon: <Icons.github className="size-3" />,
-      },
-    ],
-    image: "/dropithereImg.png",
-    viewDetails: {
-      type: "Details",
-      href: "/dropithere",
-      icon: <Icons.squareArrowOutUpRight className="size-3" />,
-    },
+      "A minimalist Essay Practice App built for placement initiative. Real-time tracking, smart feedback, and gamified challenges to enhance logic, structure, and vocabulary while tracking progress.",
   },
+    {
+    title: "SmartEssay",
+    // icon: <Icons.squareArrowOutUpRight className="size-4" />,
+    href: "https://smartessay.nishul.dev/",
+    description:
+      "A minimalist Essay Practice App built for placement initiative. Real-time tracking, smart feedback, and gamified challenges to enhance logic, structure, and vocabulary while tracking progress.",
+  },
+    {
+    title: "SmartEssay",
+    // icon: <Icons.squareArrowOutUpRight className="size-4" />,
+    href: "https://smartessay.nishul.dev/",
+    description:
+      "A minimalist Essay Practice App built for placement initiative. Real-time tracking, smart feedback, and gamified challenges to enhance logic, structure, and vocabulary while tracking progress.",
+  },
+
+]
+
+// export const projectsData = [
+//   {
+//     title: "SmartEssay",
+//     icon: <Icons.squareArrowOutUpRight className="size-4 gap-2" />,
+//     href: "https://smartessay.nishul.dev/",
+//     progress: "Ongoing",
+//     description:
+//       "A minimalist Essay Practice App built for placement initiative. Real-time tracking, smart feedback, and gamified challenges to enhance logic, structure, and vocabulary while tracking progress.",
+//     technologies: ["Next.js", "TypeScript", "TailwindCSS", "OpenAI API"],
+//     links: [
+//       {
+//         type: "Source",
+//         href: "https://github.com/NishulDhakar/smartessay",
+//         icon: <Icons.github className="size-3" />,
+//       },
+//     ],
+//     image: "/anime.jpeg",
+//     viewDetails: {
+//       type: "Details",
+//       href: "/smartessay",
+//       icon: <Icons.squareArrowOutUpRight className="size-3" />,
+//     },
+//   },
+// ];
+
+  // {
+  //   title: "DropitHere",
+  //   icon: <Icons.squareArrowOutUpRight className="size-4 gap-2" />,
+  //   href: "https://dropithere.nishul.dev/",
+  //   progress: "Completed",
+  //   description:
+  //     "Created a platform to organize content like Twitter threads and YouTube videos into custom playlists, with shareable links for easy and structured dashboard sharing.",
+  //   technologies: ["React", "Express.js", "MongoDB", "TailwindCSS", "REST API"],
+  //   links: [
+  //     {
+  //       type: "Source",
+  //       href: "https://github.com/NishulDhakar/DropitHere",
+  //       icon: <Icons.github className="size-3" />,
+  //     },
+  //   ],
+  //   image: "/dropithereImg.png",
+  //   viewDetails: {
+  //     type: "Details",
+  //     href: "/dropithere",
+  //     icon: <Icons.squareArrowOutUpRight className="size-3" />,
+  //   },
+  // },
 
   // {
   //   title: "Todo App",
@@ -71,7 +107,7 @@ export const projectsData = [
 
   // {
   //   title: "Course selling",
-
+  //   icon: <Icons.squareArrowOutUpRight className="size-4 gap-2" />,
   //   href: "https://github.com/NishulDhakar/Course-selling-backend",
   //   progress: "Completed",
   //   description:
@@ -184,4 +220,4 @@ export const projectsData = [
   //     icon: <Icons.squareArrowOutUpRight className="size-3" />,
   //   },
   // },
-];
+// ];
