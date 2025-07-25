@@ -6,7 +6,7 @@ export const certificateData = [
     title: "Azure Fundamentals",
     description: "Completed the Azure Fundamentals certification via Coursera in March 2025.",
     href: "https://www.certiport.com/portal/Pages/PrintTranscriptInfo.aspx?action=Cert&id=414&cvid=OZGa2+qwLG7ppMQJskGPCQ==",
-    image: "/azur.png",
+    image: "/Azur.png",
   },
   {
     title: "Web Development",

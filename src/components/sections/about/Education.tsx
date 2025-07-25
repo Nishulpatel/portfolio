@@ -5,13 +5,13 @@ import Container from '@/components/common/Container'
 const educationData = [
   {
     logo: '/tit.png',
-    institute: 'technocrats institute of technology',
+    institute: 'Technocrats Institute of Technology',
     degree: 'B.Tech in Computer Science and Artificial Intelligence',
     year: '2022 - 2026',
   },
   {
     logo: '/school.jpeg',
-    institute: 'sarvodaya public school',
+    institute: 'Sarvodaya Public School',
     degree: 'Higher Secondary',
     year: '2018 - 2020',
   },
@@ -19,11 +19,14 @@ const educationData = [
 
 const Education = () => {
   return (
-        <Container className="py-12 mt-">
+    <Container className="py-12">
       <h2 className="text-2xl font-bold mb-6">🎓 Education</h2>
       <div className="space-y-6">
         {educationData.map((edu, index) => (
-          <div key={index} className="flex items-center justify-between">
+          <div
+            key={index}
+            className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+          >
             <div className="flex items-center gap-4">
               <Image
                 src={edu.logo}
@@ -37,7 +40,7 @@ const Education = () => {
                 <p className="text-sm text-neutral-500">{edu.degree}</p>
               </div>
             </div>
-            <div className="text-sm text-neutral-500">{edu.year}</div>
+            <div className="text-sm text-neutral-500 sm:text-right">{edu.year}</div>
           </div>
         ))}
       </div>

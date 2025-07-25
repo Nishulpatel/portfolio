@@ -13,42 +13,42 @@ const Info = () => {
   return (
     <Container className="py-12 mt-16">
       <div className="space-y-6 text-neutral-800 dark:text-neutral-300">
-
         <h2 className="text-3xl font-bold">🧑‍💻 About Me</h2>
 
         <p className="text-lg leading-relaxed">{about.description}</p>
 
-        <div className="space-y-2">
-          <div className="flex items-start gap-3">
-            <MapPin className="w-5 h-5 mt-1 text-yellow-500" />
+        <div className="space-y-4">
+          <div className="flex items-start gap-3 flex-wrap">
+            <MapPin className="w-5 h-5 mt-0.5 text-yellow-500" />
             <span><strong>Lives in:</strong> Bhopal, India</span>
           </div>
 
-          <div className="flex items-start gap-3">
-            <Code2 className="w-5 h-5 mt-1 " />
-            <span>
-               Primarily work with Next.js, React, TypeScript, Tailwind CSS, Node.js, and MongoDB.
+          <div className="flex items-start gap-3 flex-wrap">
+            <Code2 className="w-5 h-5 mt-0.5" />
+            <span className="max-w-xl">
+              Primarily work with Next.js, React, TypeScript, Tailwind CSS, Node.js, and MongoDB.
             </span>
           </div>
 
-          <div className="flex items-start gap-3">
-            <Briefcase className="w-5 h-5 mt-1 " />
-            <span>
+          <div className="flex items-start gap-3 flex-wrap">
+            <Briefcase className="w-5 h-5 mt-0.5" />
+            <span className="max-w-xl">
               Open to new opportunities and freelancing. Any support is appreciated.
             </span>
           </div>
 
-          <div className="flex items-start gap-3">
-            <Brain className="w-5 h-5 mt-1 " />
-            <span> Strong Interests in Chess</span>
+          <div className="flex items-start gap-3 flex-wrap">
+            <Brain className="w-5 h-5 mt-0.5" />
+            <span>Strong interests in Chess</span>
           </div>
 
-          <div className="flex items-start gap-3">
-            <BookOpen className="w-5 h-5 mt-1 " />
-            <span>Love reading books on psychology, behavioral science, and human nature</span>
+          <div className="flex items-start gap-3 flex-wrap">
+            <BookOpen className="w-5 h-5 mt-0.5" />
+            <span>
+              Love reading books on psychology, behavioral science, and human nature
+            </span>
           </div>
         </div>
-        
       </div>
     </Container>
   )
