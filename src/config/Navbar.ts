@@ -1,8 +1,9 @@
 export const navbarConfig = {
   navItems: [
     { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
+    // { label: "About", href: "/about" },
     { label: "Projects", href: "/projects" },
-    { label: "Contact", href: "/contact" },
+        { label: "Blogs", href: "/blogs" },
+    // { label: "Contact", href: "/contact" },
   ],
 };
