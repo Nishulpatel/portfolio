@@ -3,7 +3,7 @@
 import { z } from "zod"
 import { formSchema } from "./Schema"
 import { Resend } from "resend"
-import { EmailTemplate } from "@/components/ui/email-tamplate"
+import { EmailTemplate } from "@/components/Contact/email-tamplate"
 
 const resend = new Resend(process.env.RESEND_API_KEY || "")
 

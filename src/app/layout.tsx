@@ -1,9 +1,9 @@
 import "./globals.css";
-import Navbar from "@/components/common/Navbar";
+import Navbar from "@/components/layout/Navbar";
 import { ViewTransitions } from "next-view-transitions";
 import { Analytics } from "@vercel/analytics/next"
-import GitHubStars from "@/components/landingPage/GithubStar";
-import Providers from "@/components/common/Providers";
+// import GitHubStars from "@/components/landingPage/GithubStar";
+import Providers from "@/components/Theam/Providers";
 
 export const metadata = {
   title: "Nishul's Portfolio",
@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={true}>
       <body className={`flex flex-col h-screen font-hanken-grotesk antialiased bg-neutral-100 dark:bg-black`}>
                 <Providers>
-        <GitHubStars />
+        {/* <GitHubStars /> */}
         <Navbar />
         {children}
         <Analytics />
