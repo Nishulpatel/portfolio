@@ -20,7 +20,7 @@ export default function CertificateCard({
   title,
   description,
   image,
-  href,
+//   href,
   className,
 }: CertificateCardProps) {
   const [isOpen, setIsOpen] = useState(false);
