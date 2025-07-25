@@ -167,6 +167,9 @@ import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/crazxy-ui/card";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { SparklesText } from "@/components/magicui/sparkles-text";
+// import { ShineBorder } from "../magicui/shine-border";
+import { GlowingEffect } from "./glowing-effect";
+
 
 export interface ProjectCardProps {
     title?: React.ReactNode; 
@@ -187,17 +190,24 @@ export default function ProjectCard({
   className={cn(
     "w-full flex flex-col p-2 rounded-xl shadow-sm hover:shadow-md transition-all border border-muted bg-background",
     className
-  )}
->
-  {/* Custom title */}
+  )}>
+    {/* <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} /> */}
+
+
+        <GlowingEffect
+          spread={40}
+          glow={true}
+          disabled={false}
+          proximity={64}
+          inactiveZone={0.01}
+        />
+
   <div className="flex items-center justify-between">
     <SparklesText className="text-lg font-semibold">{title}</SparklesText>
   </div>
 
-  {/* Custom description */}
   <p className="text-sm text-muted-foreground mt-1">{description}</p>
 
-  {/* CTA */}
   <div className="pt-8">
     <a
       href={href}

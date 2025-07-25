@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { AuroraText } from "@/components/magicui/aurora-text";
+import { PointerHighlight } from "../ui/pointer-highlight";
 
 export default function Name() {
   return (
@@ -18,12 +19,18 @@ export default function Name() {
             <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-primary" />
           </div>
           <div className="flex-1">
-            <h1 className="text-4xl font-bold tracking-tighter md:text-5xl lg:text-5xl">
+            <h1 className="text-4xl mb-2 font-bold tracking-tighter md:text-5xl lg:text-5xl">
       Nishul <AuroraText> Dhakar </AuroraText>
     </h1>
-            <p className="text-xl mt-1 text-secondary font-light">
-              Full-Stack Developer
-            </p>
+
+<PointerHighlight
+  rectangleClassName="bg-neutral-200 dark:bg-neutral-700 border-neutral-300 dark:border-neutral-600"
+  pointerClassName="text-yellow-500"
+>
+  <span className="relative z-10">Full-Stack Developer</span>
+</PointerHighlight>
+
+
             <p className="text-sm text-secondary mt-1">
              Bhopal, India
             </p>

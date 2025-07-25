@@ -1,8 +1,15 @@
-import { Icons } from "@/components/ui/icons";
+// import { Icons } from "@/components/ui/icons";
 import { ProjectCardProps } from "@/components/ui/ProjectCard";
 
 
 export const projectsData: ProjectCardProps[] = [
+      {
+    title: "DropIthere",
+    // icon: <Icons.squareArrowOutUpRight className="size-4" />,
+    href: "https://dropithere.nishul.dev/",
+    description:
+      "Created a platform to organize content like Twitter threads and YouTube videos into custom playlists, with shareable links for easy and structured dashboard sharing."
+    },
   {
     title: "SmartEssay",
     // icon: <Icons.squareArrowOutUpRight className="size-4" />,
@@ -10,29 +17,30 @@ export const projectsData: ProjectCardProps[] = [
     description:
       "A minimalist Essay Practice App built for placement initiative. Real-time tracking, smart feedback, and gamified challenges to enhance logic, structure, and vocabulary while tracking progress.",
   },
+
     {
-    title: "SmartEssay",
+    title: "Course selling web",
     // icon: <Icons.squareArrowOutUpRight className="size-4" />,
-    href: "https://smartessay.nishul.dev/",
+    href: "https://github.com/NishulDhakar/Course-selling-backend",
     description:
-      "A minimalist Essay Practice App built for placement initiative. Real-time tracking, smart feedback, and gamified challenges to enhance logic, structure, and vocabulary while tracking progress.",
-  },
-    {
-    title: "SmartEssay",
-    // icon: <Icons.squareArrowOutUpRight className="size-4" />,
-    href: "https://smartessay.nishul.dev/",
-    description:
-      "A minimalist Essay Practice App built for placement initiative. Real-time tracking, smart feedback, and gamified challenges to enhance logic, structure, and vocabulary while tracking progress.",
-  },
-    {
-    title: "SmartEssay",
-    // icon: <Icons.squareArrowOutUpRight className="size-4" />,
-    href: "https://smartessay.nishul.dev/",
-    description:
-      "A minimalist Essay Practice App built for placement initiative. Real-time tracking, smart feedback, and gamified challenges to enhance logic, structure, and vocabulary while tracking progress.",
-  },
+      "Backend for a course selling platform with admin and user roles"
+    },
+
+  //   {
+  //   title: "SmartEssay",
+  //   // icon: <Icons.squareArrowOutUpRight className="size-4" />,
+  //   href: "https://smartessay.nishul.dev/",
+  //   description:
+  //     "A minimalist Essay Practice App built for placement initiative. Real-time tracking, smart feedback, and gamified challenges to enhance logic, structure, and vocabulary while tracking progress.",
+  // },
 
 ]
+
+
+
+
+
+// -----old card data
 
 // export const projectsData = [
 //   {

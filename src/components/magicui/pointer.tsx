@@ -9,7 +9,9 @@ import {
 } from "motion/react";
 import { JSX, useEffect, useRef, useState } from "react";
 
-interface PointerProps extends Omit<HTMLMotionProps<"div">, "ref"> {}
+interface PointerProps extends Omit<HTMLMotionProps<"div">, "ref"> {
+    variant?: "default" | "fancy";
+}
 
 /**
  * A custom pointer component that displays an animated cursor.
@@ -118,7 +120,7 @@ export function Pointer({
 }
 
 
-//use 
+//uses
 
         // <Pointer>
         //   <motion.div

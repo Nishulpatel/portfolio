@@ -3,7 +3,7 @@
 
 import { navbarConfig } from "@/config/Navbar";
 import { Link } from "next-view-transitions";
-import { HiX } from "react-icons/hi";
+// import { HiX } from "react-icons/hi";
 import { motion } from "framer-motion";
 import ThemeSwitch from "./ThemeSwitch";
 

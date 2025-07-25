@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import React, {
   ComponentPropsWithoutRef,
+  useCallback,
   useEffect,
   useRef,
   useState,
@@ -13,26 +14,64 @@ interface MousePosition {
   y: number;
 }
 
-function MousePosition(): MousePosition {
+export default function MousePosition(): MousePosition {
   const [mousePosition, setMousePosition] = useState<MousePosition>({
     x: 0,
     y: 0,
   });
 
-  useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      setMousePosition({ x: event.clientX, y: event.clientY });
-    };
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
+  // ✅ Wrap the functions in useCallback
+  const onMouseMove = useCallback((e: MouseEvent) => {
+    setMousePosition({
+      x: e.clientX,
+      y: e.clientY,
+    });
   }, []);
+
+  const initCanvas = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    // init canvas style or size etc.
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }, []);
+
+  const animate = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    // Your animation logic here
+    requestAnimationFrame(animate);
+    // Example drawing:
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "red";
+    ctx.beginPath();
+    ctx.arc(mousePosition.x, mousePosition.y, 10, 0, Math.PI * 2);
+    ctx.fill();
+  }, [mousePosition.x, mousePosition.y]);
+
+  useEffect(() => {
+    initCanvas();
+    animate();
+
+    window.addEventListener("mousemove", onMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+    };
+  }, [initCanvas, animate, onMouseMove]); // ✅ add dependencies here
 
   return mousePosition;
 }
+
 
 interface ParticlesProps extends ComponentPropsWithoutRef<"div"> {
   className?: string;
