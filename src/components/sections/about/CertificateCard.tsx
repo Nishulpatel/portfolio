@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/crazxy-ui/card";
-import { InteractiveHoverButton } from "@/components/ui/magicui/interactive-hover-button";
+// import { InteractiveHoverButton } from "@/components/ui/magicui/interactive-hover-button";
 import { SparklesText } from "@/components/ui/magicui/sparkles-text";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 

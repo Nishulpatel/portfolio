@@ -1,3 +1,6 @@
+
+import Image from "next/image";
+
 export const certificateData = [
   {
     title: "Azure Fundamentals",
