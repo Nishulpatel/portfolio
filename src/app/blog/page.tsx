@@ -4,7 +4,8 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-neutral-950 text-neutral-400">
       <p className="text-lg font-mono">
-        <TypingAnimation>Blog is under construction...</TypingAnimation>
+        
+        <TypingAnimation>Blogs is under construction...</TypingAnimation>
       </p>
     </div>
   );

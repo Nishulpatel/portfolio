@@ -3,7 +3,7 @@ export const navbarConfig = {
     { label: "Home", href: "/" },
     // { label: "About", href: "/about" },
     { label: "Projects", href: "/projects" },
-        { label: "Blogs", href: "/blogs" },
+        { label: "Blogs", href: "/blog" },
     // { label: "Contact", href: "/contact" },
   ],
 };
