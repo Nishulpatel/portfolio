@@ -11,7 +11,7 @@ export default function About() {
     <section className=" mt-12 flex items-center transition-colors duration-300">
       <div className="lg:px- mx-auto w-full max-w-4xl px-6">
         <Name />
-        <div className="grid gap-10 lg:grid-cols-3">
+        <div className="grid gap-14 lg:grid-cols-3">
           <div className="space-y-6 lg:col-span-2">
             <div className="text-primary text-2xl font-semibold">About</div>
             <div className="text-secondary space-y-4 leading-relaxed">

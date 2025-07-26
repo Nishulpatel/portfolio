@@ -1,19 +1,32 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import Container from "../common/Container";
 
-
 export default function Footer() {
-  return (
-    <Container  className="max-w-4xl mx-auto px-6 lg:px-12 py-4 w-full border-t mt-10 text-sm text-gray-600 dark:text-gray-400 flex-col md:flex-row">
-      
-      <div className="mb-2 md:mb-0 text-center md:text-left">
-        © {new Date().getFullYear()} Developed with ❤️ by Nishul
-      </div>
-        <div className='max-w-4xl mb-20'>
 
-      </div>
+  return (
+    <footer
     
-      </Container>
+      className="bg-background dark:bg-background w-full overflow-hidden">
+      <div className="max-w-4xl mx-auto px-6 lg:px-12 py-12 w-full relative z-10">
+        <div className="text-center space-y-6">
+
+          {/* Decorative Line */}
+          <div >
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-400 dark:via-gray-600 to-transparent" />
+          </div>
+
+          {/* Copyright */}
+          <div>
+            <p className="text-sm text-gray-500 dark:text-gray-500">
+              © {new Date().getFullYear()} Developed with{' '}
+              <span className="text-red-500 animate-pulse">❤️</span> by Nishul
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </footer>
   );
 }

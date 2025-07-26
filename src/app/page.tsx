@@ -9,6 +9,8 @@ import ProjectsPage from "./(pages)/projects/page";
 import Link from "next/link";
 import { FaArrowCircleRight, FaArrowRight } from "react-icons/fa";
 import Footer from "@/components/layout/Footer";
+// import TextHoverEffectDemo from "@/components/sections/landingPage/BottomText";
+
 
 export default function HomePage() {
   return (
@@ -32,6 +34,7 @@ export default function HomePage() {
           </Link>
           <Footer />
         </Container>
+                
       </div>
     </div>
   );
