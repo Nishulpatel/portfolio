@@ -9,19 +9,19 @@ export const socialLinks = {
     icon: FaRegFilePdf,
   },
   Twitter: {
-    href: "https://twitter.com/yourhandle",
+    href: "https://twitter.com/nishuldhakar",
     icon: BsTwitterX,
   },
   GitHub: {
-    href: "https://github.com/yourhandle",
+    href: "https://github.com/nishuldhakar",
     icon: FiGithub,
   },
   LinkedIn: {
-    href: "https://linkedin.com/in/yourhandle",
+    href: "https://linkedin.com/in/nishuldhakar",
     icon: FaLinkedinIn,
   },
   LeetCode: {
-    href: "https://leetcode.com/yourhandle",
+    href: "https://leetcode.com/nishuldhakar",
     icon: SiLeetcode,
   },
 };
