@@ -5,7 +5,7 @@ export default function BlogPage() {
     <div className="min-h-screen flex items-center justify-center">
       <p className="text-lg font-mono">
         
-        <TypingAnimation>Blogs is under construction...</TypingAnimation>
+        <TypingAnimation>Blogs are under construction...</TypingAnimation>
       </p>
     </div>
   );
