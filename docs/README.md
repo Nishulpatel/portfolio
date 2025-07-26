@@ -56,5 +56,3 @@ Open `http://localhost:3000` in your browser.
   <em>Building the future one line at a time....</em>🚀💻✨
 </p>
 
-# portfolio
-# portfolio
