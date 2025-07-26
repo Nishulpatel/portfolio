@@ -1,19 +1,15 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
 import Container from "../common/Container";
 
 export default function Footer() {
-
   return (
-    <footer
-    
-      className="bg-background dark:bg-background w-full overflow-hidden">
-      <div className="max-w-4xl mx-auto px-6 lg:px-12 py-12 w-full relative z-10">
+    <footer className="bg-background dark:bg-background w-full overflow-hidden">
+      <Container className="max-w-4xl mx-auto px-6 lg:px-12 py-12 w-full relative z-10">
         <div className="text-center space-y-6">
 
           {/* Decorative Line */}
-          <div >
+          <div className="flex justify-center">
             <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-400 dark:via-gray-600 to-transparent" />
           </div>
 
@@ -26,7 +22,7 @@ export default function Footer() {
           </div>
 
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }
